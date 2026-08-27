@@ -2,91 +2,128 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
 <title>Cash Cows</title>
 <meta name="description" content="The cows are the cash cows. Milk Weight is the bit."/>
+<meta name="theme-color" content="#1a1008"/>
+<link rel="icon" type="image/png" href="assets/favicon.png"/>
+<link rel="apple-touch-icon" href="assets/apple-touch.png"/>
+<link rel="preload" as="image" href="assets/parlor.png"/>
+<link rel="preload" as="image" href="assets/hero.png"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Cash Cows"/>
+<meta property="og:description" content="The cows are the cash cows. Milk Weight is the bit."/>
+<meta property="og:image" content="https://wrapdbtc.github.io/cashcow/assets/og.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:url" content="https://wrapdbtc.github.io/cashcow/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Cash Cows"/>
+<meta name="twitter:description" content="The cows are the cash cows. Milk Weight is the bit."/>
+<meta name="twitter:image" content="https://wrapdbtc.github.io/cashcow/assets/og.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="assets/site.css"/>
 </head>
-<body class="stall-body">
-<nav class="fallback" aria-label="Pages">
-  <a class="on" href="index.html">Parlor</a>
-  <a href="milk/index.html">Milk</a>
-  <a href="mint/index.html">Mint</a>
-  <a href="leaderboard/index.html">Lot</a>
-  <a href="collection/index.html">Collection</a>
-</nav>
-
-<main class="stall" aria-label="The parlor">
-  <div class="line" aria-hidden="true">
-    <span class="joint"></span><span class="joint"></span><span class="joint"></span>
-    <span class="joint"></span><span class="joint"></span>
-    <span class="drop d1"></span><span class="drop d2"></span>
+<body>
+<div class="stall" id="stall">
+  <img class="room" src="assets/parlor.png" alt="" width="1152" height="768" draggable="false"/>
+  <div class="dim" aria-hidden="true"></div>
+  <div class="dust" aria-hidden="true">
+    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
   </div>
 
-  <div class="bay">
-    <div class="wall">
-      <a class="obj tap" href="milk/index.html" aria-label="Milk">
-        <div class="tap-pipe"></div>
-        <div class="tap-arm"></div>
-        <div class="cluster"><span class="cup"></span><span class="cup"></span><span class="cup"></span><span class="cup"></span></div>
-        <div class="tap-label display">MILK</div>
-        <span class="tap-sub">She's heavy.</span>
-      </a>
-      <div class="rails" aria-hidden="true">
-        <span class="rail"></span><span class="rail"></span><span class="rail"></span><span class="rail"></span>
-      </div>
+  <header class="ticket" aria-label="Stall ticket">
+    <span>CLOSED</span>
+    <span class="dot">·</span>
+    <span>2.222</span>
+    <span class="dot">·</span>
+    <span>0/3</span>
+    <span class="dot">·</span>
+    <a class="milk-link" href="https://pons.family" target="_blank" rel="noopener">$MILK</a>
+    <span class="lamp" id="lamp" title="DRY" aria-label="DRY"></span>
+  </header>
+
+  <button class="clip hit" id="clip" type="button" aria-expanded="false" aria-controls="lot">
+    <span class="clip-metal" aria-hidden="true"></span>
+    <span class="clip-k">LOT</span>
+    <span class="clip-s">heaviest milk</span>
+  </button>
+
+  <aside class="lockup" aria-label="Wall plate">
+    <p class="lock-a">MILK. SHE'S HEAVY.</p>
+    <p class="lock-b">The cows are the cash cows. Milk Weight is the bit.</p>
+    <p class="lock-c">Put her on the line. Unmilked is 0.</p>
+  </aside>
+
+  <button class="cow hit" id="cow" type="button" aria-expanded="false" aria-controls="card">
+    <img src="assets/hero.png" alt="Holstein" width="549" height="640" draggable="false" id="cow-art"/>
+    <span class="plate" id="plate">HOLSTEIN</span>
+  </button>
+
+  <div class="crt hit" id="crt" tabindex="0" aria-label="Monitor on.">
+    <div class="bezel">
+      <span class="bezel-k">LINE</span>
+      <span class="bezel-best">ON</span>
+      <button type="button" class="mute" id="mute" aria-pressed="true">MUTE</button>
     </div>
-
-    <div>
-      <div class="chalk">
-        <p class="hero-line">They're already on the line.</p>
-        <p>Milk Weight is on the card. It does not pay you.</p>
-        <p>Twelve breeds. Eleven Sacred. No crew.</p>
-        <p class="bit">The cows are the cash cows. Milk Weight is the bit.</p>
-      </div>
-
-      <div class="crt" id="monitor">
-        <div class="crt-top">
-          <span>LINE 01 · HOLSTEIN</span>
-          <button type="button" class="mute" id="mute" aria-pressed="true">MUTED</button>
-        </div>
-        <div class="crt-screen">
-          <canvas id="milk-run" width="384" height="128" aria-label="Milk Run. Space or tap to jump."></canvas>
-          <div class="scan"></div>
-          <div class="crt-sheen"></div>
-        </div>
-        <div class="crt-bottom">
-          <strong>Milk Run.</strong>
-          <span>Not a payout. Just the line.</span>
-        </div>
-      </div>
-      <div class="shelf">
-        <div class="plate">HOLSTEIN</div>
-        <p class="quiet">Milk Weight is the bit.</p>
-        <div class="can" aria-hidden="true"></div>
-      </div>
-    </div>
-
-    <div class="wall">
-      <a class="obj clip" href="leaderboard/index.html" aria-label="Lot. Heaviest milk.">
-        <p class="k">LOT</p>
-        <p>Heaviest milk. Not a dollar board.</p>
-      </a>
-      <a class="obj card-obj" href="collection/index.html" aria-label="Breed card">
-        <p class="k">CARD</p>
-        <p>Twelve breeds. Eleven Sacred. Listed = dry.</p>
-      </a>
-      <a class="obj gate" href="mint/index.html" aria-label="Mint closed">
-        <div class="bars" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-        <p class="k">CLOSED</p>
-        <p>Mint opens after $MILK graduates.</p>
-      </a>
+    <div class="glass">
+      <canvas id="line" width="320" height="200"></canvas>
+      <div class="scan" aria-hidden="true"></div>
+      <div class="glow" aria-hidden="true"></div>
     </div>
   </div>
 
-  <div class="gutter" aria-hidden="true"></div>
-  <div class="tiles" aria-hidden="true"></div>
-</main>
+  <div class="rail" aria-label="Herd">
+    <button type="button" class="tag on" data-breed="Holstein" data-grade="Whole" data-w="1.6×" data-sacred="1">Holstein</button>
+    <button type="button" class="tag listed" data-breed="Angus" data-grade="Whole" data-w="1.6×" data-sacred="1" data-listed="1">Angus</button>
+    <button type="button" class="tag listed" data-breed="Highland" data-grade="Extra Heavy" data-w="2.2×" data-sacred="1" data-listed="1">Highland</button>
+    <button type="button" class="tag" data-breed="Longhorn" data-grade="Whole" data-w="1.6×" data-sacred="1">Longhorn</button>
+    <button type="button" class="tag" data-breed="Ankole" data-grade="Golden" data-w="3.5×" data-sacred="1">Ankole</button>
+    <button type="button" class="tag" data-breed="Brahman" data-grade="Whole" data-w="1.6×" data-sacred="1">Brahman</button>
+    <button type="button" class="tag" data-breed="Dexter" data-grade="2% Milk" data-w="1.25×" data-sacred="0">Dexter</button>
+    <button type="button" class="tag" data-breed="Jersey" data-grade="Golden" data-w="3.5×" data-sacred="1">Jersey</button>
+    <button type="button" class="tag listed" data-breed="Galloway" data-grade="Whole" data-w="1.6×" data-sacred="1" data-listed="1">Galloway</button>
+    <button type="button" class="tag listed" data-breed="Buffalo" data-grade="Extra Heavy" data-w="2.2×" data-sacred="1" data-listed="1">Buffalo</button>
+    <button type="button" class="tag" data-breed="Yak" data-grade="Whole" data-w="1.6×" data-sacred="1">Yak</button>
+    <button type="button" class="tag" data-breed="Belgian Blue" data-grade="Sacred" data-w="5.0×" data-sacred="1">Belgian Blue</button>
+  </div>
+
+  <div class="veil" id="veil" hidden></div>
+
+  <div class="sheet card" id="card" hidden role="dialog" aria-labelledby="card-breed">
+    <p class="sheet-k" id="card-breed">HOLSTEIN</p>
+    <p class="sheet-g"><span id="card-grade">Whole</span> · Milk Weight <span id="card-w">1.6×</span></p>
+    <ul class="chips">
+      <li>MILK</li>
+      <li>COFFEE × 0</li>
+      <li>WEIGHT</li>
+      <li>not a return</li>
+      <li class="dry" id="card-dry">DRY</li>
+    </ul>
+    <p class="flavor">MILK. She's already producing. Unmilked don't count.</p>
+    <p class="sacred" id="card-sacred">Sacred</p>
+  </div>
+
+  <div class="sheet lot" id="lot" hidden role="dialog" aria-label="Lot">
+    <p class="sheet-k">LOT</p>
+    <p class="sheet-g">Heaviest milk. Unmilked is 0.</p>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Cow</th><th>Grade</th><th>Wt</th></tr>
+      </thead>
+      <tbody>
+        <tr class="ghost"><td>01</td><td>—</td><td>—</td><td>0</td></tr>
+        <tr class="ghost"><td>02</td><td>—</td><td>—</td><td>0</td></tr>
+        <tr class="ghost"><td>03</td><td>—</td><td>—</td><td>0</td></tr>
+        <tr class="ghost"><td>04</td><td>—</td><td>—</td><td>0</td></tr>
+        <tr class="ghost"><td>05</td><td>—</td><td>—</td><td>0</td></tr>
+        <tr class="ghost"><td>06</td><td>—</td><td>—</td><td>0</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 <script src="assets/game.js"></script>
 </body>
 </html>
