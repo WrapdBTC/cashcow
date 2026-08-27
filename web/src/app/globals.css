@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-cream: #f8f0d8;
+  --color-cream-dark: #eadcb4;
+  --color-paper: #fffcf3;
+  --color-ink: #2a180c;
+  --color-ink-soft: #5a3a22;
+  --color-brown: #6e4326;
+  --color-spot: #4a2c18;
+  --color-tie: #2f6de0;
+  --color-tie-dark: #1e4fb8;
+  --color-gold: #c9921f;
+  --color-gold-pale: #f3d789;
+  --color-pink: #e8a394;
+  --color-mug: #8b5428;
+  --font-sans: var(--font-body), "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-pixel), "Pixelify Sans", ui-sans-serif, sans-serif;
+  --font-mono: var(--font-num), "IBM Plex Mono", ui-monospace, monospace;
+}
+
+html,
+body {
+  background: #f8f0d8;
+  color: #2a180c;
+}
+
+body {
+  font-family: var(--font-body), "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.grid-bg {
+  background-color: #f8f0d8;
+  background-image:
+    linear-gradient(rgba(42, 24, 12, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42, 24, 12, 0.045) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.pixel {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.panel {
+  background: #fffcf3;
+  border: 3px solid #2a180c;
+  box-shadow: 6px 6px 0 #2a180c;
+}
+
+.panel-flat {
+  background: #fffcf3;
+  border: 3px solid #2a180c;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: 3px solid #2a180c;
+  box-shadow: 4px 4px 0 #2a180c;
+  font-family: var(--font-pixel), "Pixelify Sans", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+}
+
+.btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #2a180c;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  box-shadow: none;
+}
+
+.btn-tie {
+  background: #2f6de0;
+  color: #fffcf3;
+}
+
+.btn-gold {
+  background: #e2b63a;
+  color: #2a180c;
+}
+
+.btn-paper {
+  background: #fffcf3;
+  color: #2a180c;
+}
+
+.btn-ink {
+  background: #2a180c;
+  color: #f8f0d8;
+}
+
+.display {
+  font-family: var(--font-pixel), "Pixelify Sans", sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.ticker {
+  overflow: hidden;
+  border-top: 3px solid #2a180c;
+  border-bottom: 3px solid #2a180c;
+  background: #2a180c;
+  color: #f8f0d8;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 36s linear infinite;
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
