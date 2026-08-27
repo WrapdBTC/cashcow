@@ -2,7 +2,7 @@ import { GradeTable } from "@/components/GradeTable";
 import { LeaderboardBoard } from "@/components/LeaderboardBoard";
 
 export const metadata = {
-  title: "Board \u00b7 Cash Cows",
+  title: "Board · Cash Cows",
   description: "Heaviest milk. Not a dollar board.",
 };
 

@@ -1,7 +1,7 @@
 import { ClockPanel } from "@/components/ClockPanel";
 
 export const metadata = {
-  title: "Clock in \u00b7 Cash Cows",
+  title: "Clock in · Cash Cows",
   description: "Stake the NFT. Milk weight counts. Unstaked cows sit at 0.",
 };
 

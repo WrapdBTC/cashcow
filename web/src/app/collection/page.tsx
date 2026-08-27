@@ -1,7 +1,7 @@
 import { BREEDS } from "@/lib/breeds";
 
 export const metadata = {
-  title: "Collection \u00b7 Cash Cows",
+  title: "Collection · Cash Cows",
   description: "Twelve titles on the floor. Holstein CFO is the face.",
 };
 
@@ -11,7 +11,7 @@ export default function CollectionPage() {
       <p className="display text-sm text-tie">Titles, not extra species</p>
       <h1 className="display mt-2 text-3xl sm:text-4xl">The floor</h1>
       <p className="mt-3 max-w-xl text-sm text-ink-soft">
-        Twelve desks. Holstein CFO is the collection face \u2014 shirt, blue tie,
+        Twelve desks. Holstein CFO is the collection face — shirt, blue tie,
         coffee mug. 2,222 cows.
       </p>
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

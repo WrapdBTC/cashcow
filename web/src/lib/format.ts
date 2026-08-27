@@ -22,5 +22,5 @@ export function formatWeight(value: bigint | number | undefined) {
 }
 
 export function formatMultiplier(m: number) {
-  return `${m.toFixed(2).replace(/0$/, "").replace(/\.0$/, ".0")}\u00d7`;
+  return `${m.toFixed(2).replace(/0$/, "").replace(/\.0$/, ".0")}×`;
 }
