@@ -7,15 +7,40 @@
 <link rel="stylesheet" href="../assets/site.css"/>
 </head>
 <body>
-<header>
-  <a class="display" href="../index.html" style="text-decoration:none;font-size:20px">Cash Cows</a>
-  <nav><a class="display" href="../index.html">Home</a><a class="display on" href="../mint/index.html">Mint</a><a class="display" href="../clock-in/index.html">Clock in</a><a class="display" href="../leaderboard/index.html">Board</a><a class="display" href="../collection/index.html">Collection</a></nav>
+<header class="top">
+  <a class="brand display" href="../index.html"><span class="mark" aria-hidden="true"></span>Cash Cows</a>
+  <nav>
+    <a class="display" href="../index.html">Floor</a>
+    <a class="display on" href="../mint/index.html">Mint</a>
+    <a class="display" href="../clock-in/index.html">Clock in</a>
+    <a class="display" href="../leaderboard/index.html">Board</a>
+    <a class="display" href="../collection/index.html">Collection</a>
+  </nav>
+  <a class="btn gold clock-cta" href="../clock-in/index.html">CLOCK IN</a>
 </header>
 <div class="wrap">
-<p class="display" style="color:var(--tie)">Mint</p>
-<h1 class="display">Pay $MILK. It burns.</h1>
-<p class="lead">Token-only mint. Max 3 per wallet. Opens 48h after Pons graduation. Closed until then.</p>
-<div class="panel" style="padding:24px;margin-top:20px"><p class="display">Mint is closed.</p><p>Set the $MILK address after Pons. 100% burn. Not a payout.</p></div>
+  <p class="kicker display">Mint</p>
+  <h1 class="display">Pay $MILK. It burns.</h1>
+  <p class="lead">Token-only mint. $MILK burns 100%. Max 3 per wallet. Opens 48h after Pons. Closed until then.</p>
+  <ul class="pills">
+    <li>$MILK 100% burn</li>
+    <li>Max 3 / wallet</li>
+    <li>48h after Pons</li>
+    <li>Chain 4663</li>
+  </ul>
+  <div class="panel closed" style="margin-top:28px">
+    <p class="display big">Mint is closed.</p>
+    <p>Contracts on 4663 after Pons.</p>
+    <p class="hint">Clock in. They're already at work. No wallet panel until the contracts exist.</p>
+    <div class="row" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+      <span class="btn is-off" aria-disabled="true">Clock in</span>
+      <span class="btn is-off" aria-disabled="true">Mint</span>
+    </div>
+  </div>
 </div>
-<footer>The cows are the cash cows. Milk Weight is the bit. $MILK is fuel.</footer>
-</body></html>
+<footer class="site-foot">
+  <p class="tag">The cows are the cash cows. Milk Weight is the bit.</p>
+  <p>Till is 50% Pons creator + 5% royalties by milk weight of clocked-in cows. Burn-mint does not feed it.</p>
+</footer>
+</body>
+</html>
