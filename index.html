@@ -7,46 +7,47 @@
 <meta name="description" content="The cows are the cash cows. Milk Weight is the bit."/>
 <link rel="stylesheet" href="assets/site.css"/>
 </head>
-<body>
-<header class="top">
-  <a class="brand display" href="index.html"><span class="mark" aria-hidden="true"></span>Cash Cows</a>
-  <nav>
-    <a class="display on" href="index.html">Floor</a>
-    <a class="display" href="mint/index.html">Mint</a>
-    <a class="display" href="clock-in/index.html">Clock in</a>
-    <a class="display" href="leaderboard/index.html">Board</a>
-    <a class="display" href="collection/index.html">Collection</a>
-  </nav>
-  <a class="btn gold clock-cta" href="clock-in/index.html">CLOCK IN</a>
-</header>
+<body class="stall-body">
+<nav class="fallback" aria-label="Pages">
+  <a class="on" href="index.html">Parlor</a>
+  <a href="milk/index.html">Milk</a>
+  <a href="mint/index.html">Mint</a>
+  <a href="leaderboard/index.html">Lot</a>
+  <a href="collection/index.html">Collection</a>
+</nav>
 
-<div class="command">
-  <p class="meta">Floor · 2,222 · Robinhood 4663</p>
-  <p class="cmd">&gt; THE COWS ARE THE CASH COWS.</p>
-  <p class="cmd">&gt; MILK WEIGHT IS THE BIT.</p>
-</div>
+<main class="stall" aria-label="The parlor">
+  <div class="line" aria-hidden="true">
+    <span class="joint"></span><span class="joint"></span><span class="joint"></span>
+    <span class="joint"></span><span class="joint"></span>
+    <span class="drop d1"></span><span class="drop d2"></span>
+  </div>
 
-<section class="office" aria-label="The floor">
-  <div class="fluorescent" aria-hidden="true"><span class="tube"></span><span class="tube"></span><span class="tube"></span></div>
-  <div class="room">
-    <aside class="wall-left">
-      <a class="punch" href="clock-in/index.html">
-        <span class="punch-face">CLOCK IN</span>
-        <span class="punch-sub">They're already at work.</span>
+  <div class="bay">
+    <div class="wall">
+      <a class="obj tap" href="milk/index.html" aria-label="Milk">
+        <div class="tap-pipe"></div>
+        <div class="tap-arm"></div>
+        <div class="cluster"><span class="cup"></span><span class="cup"></span><span class="cup"></span><span class="cup"></span></div>
+        <div class="tap-label display">MILK</div>
+        <span class="tap-sub">She's heavy.</span>
       </a>
-      <div class="cabinet" aria-hidden="true"><div class="drawer"></div><div class="drawer"></div><div class="drawer"></div></div>
-    </aside>
+      <div class="rails" aria-hidden="true">
+        <span class="rail"></span><span class="rail"></span><span class="rail"></span><span class="rail"></span>
+      </div>
+    </div>
 
-    <div class="desk-wrap">
-      <div class="frame-row">
-        <div class="frame"><b>2,222</b><span>cows</span></div>
-        <div class="window" aria-hidden="true"><div class="blinds"></div><div class="sash"></div></div>
-        <div class="frame"><b>3</b><span>max / wallet</span></div>
+    <div>
+      <div class="chalk">
+        <p class="hero-line">They're already on the line.</p>
+        <p>Milk Weight is on the card. It does not pay you.</p>
+        <p>Twelve breeds. Eleven Sacred. No crew.</p>
+        <p class="bit">The cows are the cash cows. Milk Weight is the bit.</p>
       </div>
 
-      <div class="crt">
+      <div class="crt" id="monitor">
         <div class="crt-top">
-          <span>MONITOR 01 · HOLSTEIN</span>
+          <span>LINE 01 · HOLSTEIN</span>
           <button type="button" class="mute" id="mute" aria-pressed="true">MUTED</button>
         </div>
         <div class="crt-screen">
@@ -56,84 +57,36 @@
         </div>
         <div class="crt-bottom">
           <strong>Milk Run.</strong>
-          <span>Not a payout. Just the floor.</span>
+          <span>Not a payout. Just the line.</span>
         </div>
       </div>
-
-      <div class="desk">
-        <div class="nameplate">HOLSTEIN CFO</div>
-        <p class="shift">NEXT SHIFT STARTS after $MILK</p>
-        <div class="desk-mug" aria-hidden="true"></div>
+      <div class="shelf">
+        <div class="plate">HOLSTEIN</div>
+        <p class="quiet">Milk Weight is the bit.</p>
+        <div class="can" aria-hidden="true"></div>
       </div>
-      <div class="leg-row" aria-hidden="true"><div class="leg"></div><div class="leg"></div></div>
     </div>
 
-    <aside class="wall-right">
-      <div class="plant" aria-hidden="true">
-        <div class="leaf l3"></div><div class="leaf l2"></div><div class="leaf"></div>
-        <div class="pot"></div>
-      </div>
-    </aside>
-  </div>
-  <div class="baseboard"></div>
-</section>
-
-<div class="ticker display" aria-hidden="true">
-  <div class="ticker-track">
-    Skim <b>1111</b> · 2% Milk <b>622</b> · Whole <b>311</b> · Extra Heavy <b>133</b> · Golden <b>34</b> · Sacred <b>11</b> · Milk Weight is the bit ·
-    Skim <b>1111</b> · 2% Milk <b>622</b> · Whole <b>311</b> · Extra Heavy <b>133</b> · Golden <b>34</b> · Sacred <b>11</b> · Milk Weight is the bit ·
-  </div>
-</div>
-
-<section class="section">
-  <div class="inner">
-    <p class="kicker display">The floor</p>
-    <h2 class="display">Three desks.</h2>
-    <div class="grid three">
-      <a class="card" href="mint/index.html">
-        <p class="num display">01</p>
-        <h3 class="display">Mint</h3>
-        <p>Pay $MILK. It burns 100%. Max 3 per wallet. Opens 48h after Pons. Closed until then.</p>
-      </a>
-      <a class="card" href="clock-in/index.html">
-        <p class="num display">02</p>
-        <h3 class="display">Clock in</h3>
-        <p>Stake the NFT. Milk weight counts. Sit out and your till share is 0.</p>
-      </a>
-      <a class="card" href="leaderboard/index.html">
-        <p class="num display">03</p>
-        <h3 class="display">Board</h3>
+    <div class="wall">
+      <a class="obj clip" href="leaderboard/index.html" aria-label="Lot. Heaviest milk.">
+        <p class="k">LOT</p>
         <p>Heaviest milk. Not a dollar board.</p>
       </a>
+      <a class="obj card-obj" href="collection/index.html" aria-label="Breed card">
+        <p class="k">CARD</p>
+        <p>Twelve breeds. Eleven Sacred. Listed = dry.</p>
+      </a>
+      <a class="obj gate" href="mint/index.html" aria-label="Mint closed">
+        <div class="bars" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <p class="k">CLOSED</p>
+        <p>Mint opens after $MILK graduates.</p>
+      </a>
     </div>
   </div>
-</section>
 
-<section class="section">
-  <div class="inner">
-    <p class="kicker display">Titles, not extra species</p>
-    <h2 class="display">Twelve desks.</h2>
-    <div class="strip">
-      <a class="job" href="collection/index.html"><p class="n">01</p><h3 class="display">Holstein CFO</h3></a>
-      <a class="job" href="collection/index.html"><p class="n">02</p><h3 class="display">Angus Quiet Partner</h3></a>
-      <a class="job" href="collection/index.html"><p class="n">03</p><h3 class="display">Highland Chair</h3></a>
-      <a class="job" href="collection/index.html"><p class="n">04</p><h3 class="display">Longhorn Legal</h3></a>
-      <a class="job" href="collection/index.html"><p class="n">05</p><h3 class="display">Ankole Cathedral</h3></a>
-      <a class="job" href="collection/index.html"><p class="n">06</p><h3 class="display">Brahman Ops</h3></a>
-      <a class="job" href="collection/index.html"><p class="n">07</p><h3 class="display">Dexter Intern</h3></a>
-      <a class="job" href="collection/index.html"><p class="n">08</p><h3 class="display">Jersey Treasury</h3></a>
-      <a class="job" href="collection/index.html"><p class="n">09</p><h3 class="display">Galloway Brand</h3></a>
-      <a class="job" href="collection/index.html"><p class="n">10</p><h3 class="display">Buffalo Outside Counsel</h3></a>
-      <a class="job" href="collection/index.html"><p class="n">11</p><h3 class="display">Yak Remote</h3></a>
-      <a class="job" href="collection/index.html"><p class="n">12</p><h3 class="display">Belgian Blue Security</h3></a>
-    </div>
-  </div>
-</section>
-
-<footer class="site-foot">
-  <p class="tag">The cows are the cash cows. Milk Weight is the bit.</p>
-  <p>Till is 50% Pons creator + 5% royalties by milk weight of clocked-in cows. Burn-mint does not feed it.</p>
-</footer>
+  <div class="gutter" aria-hidden="true"></div>
+  <div class="tiles" aria-hidden="true"></div>
+</main>
 <script src="assets/game.js"></script>
 </body>
 </html>

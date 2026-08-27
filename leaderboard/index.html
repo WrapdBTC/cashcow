@@ -3,57 +3,44 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Board · Cash Cows</title>
+<title>Lot · Cash Cows</title>
+<meta name="description" content="Lot is heaviest milk. Run is the arcade. Never mix."/>
 <link rel="stylesheet" href="../assets/site.css"/>
 </head>
 <body>
-<header class="top">
-  <a class="brand display" href="../index.html"><span class="mark" aria-hidden="true"></span>Cash Cows</a>
-  <nav>
-    <a class="display" href="../index.html">Floor</a>
-    <a class="display" href="../mint/index.html">Mint</a>
-    <a class="display" href="../clock-in/index.html">Clock in</a>
-    <a class="display on" href="../leaderboard/index.html">Board</a>
-    <a class="display" href="../collection/index.html">Collection</a>
-  </nav>
-  <a class="btn gold clock-cta" href="../clock-in/index.html">CLOCK IN</a>
-</header>
-<div class="wrap">
-  <p class="kicker display">Board</p>
-  <h1 class="display">Heaviest milk.</h1>
-  <p class="lead">Counts are the census. Not a dollar board.</p>
-  <table style="margin-top:22px">
-    <thead><tr><th>Grade</th><th>Weight</th><th>Count</th></tr></thead>
-    <tbody>
-      <tr><td>Skim</td><td>1.0×</td><td>1111</td></tr>
-      <tr><td>2% Milk</td><td>1.25×</td><td>622</td></tr>
-      <tr><td>Whole</td><td>1.6×</td><td>311</td></tr>
-      <tr><td>Extra Heavy</td><td>2.2×</td><td>133</td></tr>
-      <tr><td>Golden</td><td>3.5×</td><td>34</td></tr>
-      <tr><td>Sacred</td><td>5.0×</td><td>11</td></tr>
-    </tbody>
-  </table>
-  <h2 class="display" style="margin-top:36px">On the floor</h2>
-  <p class="lead">Empty until cows clock in.</p>
-  <table style="margin-top:14px">
-    <thead><tr><th>#</th><th>Cow</th><th>Grade</th><th>Weight</th></tr></thead>
-    <tbody>
-      <tr class="empty"><td>01</td><td>—</td><td>—</td><td>—</td></tr>
-      <tr class="empty"><td>02</td><td>—</td><td>—</td><td>—</td></tr>
-      <tr class="empty"><td>03</td><td>—</td><td>—</td><td>—</td></tr>
-      <tr class="empty"><td>04</td><td>—</td><td>—</td><td>—</td></tr>
-      <tr class="empty"><td>05</td><td>—</td><td>—</td><td>—</td></tr>
-      <tr class="empty"><td>06</td><td>—</td><td>—</td><td>—</td></tr>
-      <tr class="empty"><td>07</td><td>—</td><td>—</td><td>—</td></tr>
-      <tr class="empty"><td>08</td><td>—</td><td>—</td><td>—</td></tr>
-      <tr class="empty"><td>09</td><td>—</td><td>—</td><td>—</td></tr>
-      <tr class="empty"><td>10</td><td>—</td><td>—</td><td>—</td></tr>
-    </tbody>
-  </table>
+<nav class="fallback" aria-label="Pages">
+  <a href="../index.html">Parlor</a>
+  <a href="../milk/index.html">Milk</a>
+  <a href="../mint/index.html">Mint</a>
+  <a class="on" href="../leaderboard/index.html">Lot</a>
+  <a href="../collection/index.html">Collection</a>
+</nav>
+<div class="page-top">
+  <a class="door" href="../index.html"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>PARLOR</a>
 </div>
-<footer class="site-foot">
-  <p class="tag">The cows are the cash cows. Milk Weight is the bit.</p>
-  <p>Till is 50% Pons creator + 5% royalties by milk weight of clocked-in cows. Burn-mint does not feed it.</p>
-</footer>
+<div class="wrap">
+  <p class="kicker display">Two boards. Never mix.</p>
+  <h1 class="display">Lot and Run.</h1>
+  <p class="lead">Lot is heaviest milk on the line. Run is the CRT arcade. Run has no dollars. Run has no Weight.</p>
+  <div class="grid two" style="margin-top:28px">
+    <section>
+      <h2 class="display">Lot</h2>
+      <p class="hint" data-lot-note>Heaviest milk. Unmilked = 0.</p>
+      <table style="margin-top:12px">
+        <thead><tr><th>#</th><th>Cow</th><th>Grade</th><th>Weight</th></tr></thead>
+        <tbody data-lot-body></tbody>
+      </table>
+    </section>
+    <section>
+      <h2 class="display">Run</h2>
+      <p class="hint" data-run-note>Arcade. This CRT.</p>
+      <table style="margin-top:12px">
+        <thead><tr><th>#</th><th>Run</th><th>Coffee</th></tr></thead>
+        <tbody data-run-body></tbody>
+      </table>
+    </section>
+  </div>
+</div>
+<script src="../assets/chain.js"></script>
 </body>
 </html>

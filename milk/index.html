@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Milk · Cash Cows</title>
+<meta name="description" content="Milk. She's heavy. Unmilked = 0."/>
+<link rel="stylesheet" href="../assets/site.css"/>
+</head>
+<body>
+<nav class="fallback" aria-label="Pages">
+  <a href="../index.html">Parlor</a>
+  <a class="on" href="../milk/index.html">Milk</a>
+  <a href="../mint/index.html">Mint</a>
+  <a href="../leaderboard/index.html">Lot</a>
+  <a href="../collection/index.html">Collection</a>
+</nav>
+<div class="page-top">
+  <a class="door" href="../index.html"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>PARLOR</a>
+</div>
+<div class="wrap" data-milk-desk>
+  <p class="kicker display">The tap</p>
+  <h1 class="display">Milk. She's heavy.</h1>
+  <p class="lead">Unmilked = 0. Milk Weight is on the card. It does not pay you. Tap MILK to put her on the line. DRY takes her off. Live weight is 0 until she is milked.</p>
+  <div class="grid two" style="margin-top:22px">
+    <div class="panel">
+      <h3 class="display" style="margin-top:0">On the line</h3>
+      <p>Her grade counts. Skim 1.0× through Sacred 5.0×.</p>
+    </div>
+    <div class="panel">
+      <h3 class="display" style="margin-top:0">Unmilked = 0</h3>
+      <p>Off the line, live weight is 0. The lot does not see her.</p>
+    </div>
+  </div>
+  <div class="panel" style="margin-top:22px">
+    <p class="display" data-status>Unmilked = 0. Lot is not live.</p>
+    <p class="hint">Robinhood Chain 4663. No fake connect.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;align-items:center">
+      <button type="button" class="btn gold" data-connect>Connect</button>
+      <button type="button" class="btn" data-withdraw disabled>Withdraw</button>
+      <span class="hint">In the lot: <b data-pending>0</b></span>
+    </div>
+    <ul class="cow-list" data-cows style="margin-top:16px"></ul>
+  </div>
+</div>
+<p class="foot-one">A cut of token trading fees sits in the lot. Withdraw whenever. If nobody trades, it's zero.</p>
+<script src="../assets/chain.js"></script>
+</body>
+</html>
