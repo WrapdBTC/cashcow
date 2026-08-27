@@ -12,7 +12,8 @@
   ctx.imageSmoothingEnabled = false;
 
   var HS_KEY = "cashcows-milk-run";
-  var GROUND = 104;
+  var BOARD_KEY = "cashcows-milk-run-board";
+  var GROUND = 108;
 
   var INK = "#2a180c";
   var PAPER = "#fffcf3";
@@ -24,13 +25,16 @@
   var PINK = "#e89a8a";
   var MUG = "#c45c2a";
   var CRT = "#0e1610";
-  var WALL = "#243028";
-  var FLOOR = "#4a3218";
+  var WALL = "#2a3228";
+  var FLOOR = "#cbb890";
+  var STEEL = "#8a9aa8";
+  var STEEL2 = "#6d7c88";
 
   var state = "boot";
   var bootT = 0;
   var frame = 0;
   var score = 0;
+  var coffee = 0;
   var best = 0;
   try { best = parseInt(localStorage.getItem(HS_KEY) || "0", 10) || 0; } catch (e) { best = 0; }
 
@@ -48,7 +52,7 @@
   function setMuteLabel() {
     if (!muteBtn) return;
     muteBtn.textContent = muted ? "MUTED" : "SOUND";
-    muteBtn.classList.toggle("on", !muted);
+    muteBtn.classList.toggle("hot", !muted);
     muteBtn.setAttribute("aria-pressed", muted ? "true" : "false");
   }
   setMuteLabel();
@@ -135,6 +139,7 @@
     "J": "001001001101010",
     "X": "101101010101101",
     "/": "001001010100100",
+    "×": "101010111010101",
     "·": "000000010000000"
   };
 
@@ -168,8 +173,10 @@
     rect(ox + 4, Math.floor(y) - 2, 22, 2, "rgba(0,0,0,.35)");
     px(3, 4, 9, 6, PAPER);
     px(5, 4, 4, 3, BROWN);
-    px(4, 7, 7, 1, PAPER);
+    px(3, 7, 9, 3, PAPER);
+    px(4, 8, 7, 1, "#dfe6f2");
     px(11, 3, 5, 5, PAPER);
+    px(12, 4, 2, 2, BROWN);
     px(15, 5, 2, 2, PINK);
     px(13, 4, 1, 1, blink ? PAPER : INK);
     px(12, 2, 2, 1, INK);
@@ -188,27 +195,25 @@
     }
   }
 
+  function drawStool(x, y) {
+    var ox = Math.floor(x);
+    var base = Math.floor(y);
+    rect(ox + 2, base - 12, 14, 4, INK);
+    rect(ox + 3, base - 11, 12, 2, BROWN);
+    rect(ox + 4, base - 8, 2, 8, INK);
+    rect(ox + 12, base - 8, 2, 8, INK);
+    rect(ox + 7, base - 8, 3, 8, STEEL2);
+  }
+
   function drawChair(x, y) {
     var ox = Math.floor(x);
     var base = Math.floor(y);
     rect(ox + 2, base - 22, 3, 16, INK);
-    rect(ox + 3, base - 21, 1, 14, TIE);
+    rect(ox + 3, base - 21, 1, 14, STEEL);
     rect(ox + 2, base - 10, 14, 3, INK);
     rect(ox + 3, base - 9, 12, 1, BROWN);
     rect(ox + 4, base - 7, 2, 7, INK);
     rect(ox + 12, base - 7, 2, 7, INK);
-    rect(ox, base - 2, 18, 2, INK);
-  }
-
-  function drawPrinter(x, y) {
-    var ox = Math.floor(x);
-    var base = Math.floor(y);
-    rect(ox + 2, base - 20, 18, 18, INK);
-    rect(ox + 4, base - 18, 14, 8, "#6a6a6a");
-    rect(ox + 6, base - 16, 10, 3, PAPER);
-    rect(ox + 4, base - 8, 14, 4, "#4a4a4a");
-    rect(ox + 14, base - 24, 4, 5, PAPER);
-    rect(ox + 5, base - 6, 3, 2, GOLD);
   }
 
   function drawMug(x, y, steam) {
@@ -227,6 +232,7 @@
 
   function resetRun() {
     score = 0;
+    coffee = 0;
     speed = 2;
     spawn = 70;
     dist = 0;
@@ -288,14 +294,28 @@
 
   function spawnThing() {
     var r = Math.random();
-    if (r < 0.42) {
-      things.push({ kind: "chair", x: W + 8, y: GROUND, w: 16, h: 22, hit: true });
+    if (r < 0.38) {
+      things.push({ kind: "stool", x: W + 8, y: GROUND, w: 16, h: 14, hit: true });
     } else if (r < 0.72) {
-      things.push({ kind: "printer", x: W + 8, y: GROUND, w: 20, h: 24, hit: true });
+      things.push({ kind: "chair", x: W + 8, y: GROUND, w: 16, h: 22, hit: true });
     } else {
       things.push({ kind: "mug", x: W + 8, y: GROUND - 28 - Math.floor(Math.random() * 18), w: 10, h: 10, hit: false });
     }
     spawn = 48 + Math.floor(Math.random() * 42) - Math.min(18, score / 40);
+  }
+
+  function saveBoard() {
+    try {
+      if (score > best) {
+        best = score;
+        localStorage.setItem(HS_KEY, String(best));
+      }
+      var board = [];
+      try { board = JSON.parse(localStorage.getItem(BOARD_KEY) || "[]"); } catch (e) { board = []; }
+      if (!Array.isArray(board)) board = [];
+      board.unshift({ run: score, coffee: coffee, t: Date.now() });
+      localStorage.setItem(BOARD_KEY, JSON.stringify(board.slice(0, 20)));
+    } catch (e) {}
   }
 
   function step() {
@@ -331,15 +351,13 @@
         if (aabb(hitbox, tb)) {
           if (t.kind === "mug") {
             things.splice(i, 1);
+            coffee++;
             dist += 40;
             beep(880, 0.07, 0.07);
             beep(1170, 0.05, 0.05);
           } else {
             state = "over";
-            if (score > best) {
-              best = score;
-              try { localStorage.setItem(HS_KEY, String(best)); } catch (e) {}
-            }
+            saveBoard();
             beep(140, 0.18, 0.09);
           }
         }
@@ -350,21 +368,20 @@
   function drawBg() {
     rect(0, 0, W, H, CRT);
     rect(0, 0, W, GROUND - 8, WALL);
-    var gx = -((cam | 0) % 48);
-    for (var x = gx; x < W + 48; x += 48) {
-      rect(x, 40, 3, GROUND - 48, "#1a221c");
-      rect(x + 3, 52, 28, 3, "#1a221c");
-    }
-    if ((frame % 47) !== 12) {
-      rect(20, 4, 70, 3, GOLDP);
-      rect(160, 4, 70, 3, GOLDP);
-      rect(290, 4, 70, 3, GOLDP);
+    rect(0, 8, W, 5, STEEL2);
+    var gx = -((cam | 0) % 56);
+    for (var x = gx; x < W + 56; x += 56) {
+      rect(x + 10, 8, 6, 6, STEEL);
+      rect(x + 12, 14, 3, 22, STEEL);
+      rect(x, 36, 3, GROUND - 44, "#1a221c");
+      rect(x + 3, 52, 18, 3, STEEL2);
     }
     rect(0, GROUND - 8, W, 8, BROWN);
     rect(0, GROUND, W, H - GROUND, FLOOR);
     var fx = -((cam | 0) % 16);
     for (var i = fx; i < W; i += 16) {
       rect(i, GROUND, 1, H - GROUND, INK);
+      rect(i, GROUND + ((i / 16) % 2 ? 8 : 0), 16, 1, "rgba(42,24,12,.25)");
     }
   }
 
@@ -378,12 +395,21 @@
     rect(112, 92, barW, 8, TIE);
     ctx.strokeStyle = PAPER;
     ctx.strokeRect(112.5, 92.5, 159, 7);
-    drawText("BOOTING THE FLOOR", 118, 106, 1, PAPER);
+    drawText("ON THE LINE", 140, 106, 1, PAPER);
   }
 
-  function drawHUD() {
-    drawText("SCORE " + String(score).padStart(4, "0"), 8, 8, 1, PAPER);
-    drawText("BEST " + String(best).padStart(4, "0"), 280, 8, 1, GOLDP);
+  function pad(n, w) {
+    var s = String(n);
+    while (s.length < w) s = "0" + s;
+    return s;
+  }
+
+  function drawHUD(dry) {
+    drawText("MILK", 6, 4, 1, GOLDP);
+    drawText("COFFEE X" + pad(coffee, 2), 78, 4, 1, PAPER);
+    drawText("WEIGHT " + pad(score, 4), 178, 4, 1, PAPER);
+    drawText("NOT A RETURN", 178, 12, 1, GOLD);
+    drawText(dry ? "DRY" : "LINE", 350, 4, 1, dry ? GOLD : TIE);
   }
 
   function draw() {
@@ -394,8 +420,8 @@
     drawBg();
     for (var i = 0; i < things.length; i++) {
       var t = things[i];
-      if (t.kind === "chair") drawChair(t.x, t.y);
-      else if (t.kind === "printer") drawPrinter(t.x, t.y);
+      if (t.kind === "stool") drawStool(t.x, t.y);
+      else if (t.kind === "chair") drawChair(t.x, t.y);
       else drawMug(t.x, t.y - t.h, (frame >> 3) & 1);
     }
     var fr = state === "run" ? (frame >> 3) & 1 : 0;
@@ -407,17 +433,17 @@
       ctx.strokeStyle = GOLD;
       ctx.strokeRect(70.5, 28.5, 243, 43);
       drawText("MILK RUN", 132, 36, 2, GOLDP);
-      drawText("SPACE / TAP TO RUN", 112, 56, 1, PAPER);
-      drawHUD();
+      drawText("SPACE / TAP", 148, 56, 1, PAPER);
+      drawHUD(true);
     } else if (state === "over") {
       rect(48, 24, 288, 64, "#050806");
       ctx.strokeStyle = GOLD;
       ctx.strokeRect(48.5, 24.5, 287, 63);
-      drawText("SHIFT OVER · YOU WERE LISTED", 78, 34, 1, GOLD);
-      drawText("SCORE " + score + "   BEST " + best, 108, 50, 1, GOLDP);
+      drawText("DRY", 176, 34, 2, GOLD);
+      drawText("COFFEE X" + coffee + "   BEST " + best, 108, 52, 1, GOLDP);
       drawText("SPACE / TAP", 148, 66, 1, PAPER);
     } else {
-      drawHUD();
+      drawHUD(false);
     }
   }
 
