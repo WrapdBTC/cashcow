@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { GradePills, GradeTable } from "@/components/GradeTable";
 import { MAX_PER_WALLET, MAX_SUPPLY } from "@/lib/chain";
+import { asset } from "@/lib/paths";
 
 export default function HomePage() {
   return (
@@ -35,7 +36,7 @@ export default function HomePage() {
         <div className="relative mx-auto w-full max-w-md">
           <div className="panel overflow-hidden bg-cream p-2">
             <img
-              src="/hero.png"
+              src={asset("/hero.png")}
               alt="Holstein CFO — shirt, blue tie, coffee mug"
               className="pixel mx-auto h-auto w-full bg-cream"
             />

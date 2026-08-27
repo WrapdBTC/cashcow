@@ -1,5 +1,6 @@
 import { MintPanel } from "@/components/MintPanel";
 import { GradePills } from "@/components/GradeTable";
+import { asset } from "@/lib/paths";
 
 export const metadata = {
   title: "Mint · Cash Cows",
@@ -13,7 +14,7 @@ export default function MintPage() {
       <aside className="space-y-4">
         <div className="panel overflow-hidden p-3">
           <img
-            src="/hero.png"
+            src={asset("/hero.png")}
             alt="Holstein CFO"
             className="pixel w-full bg-cream"
           />

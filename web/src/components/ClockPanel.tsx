@@ -14,6 +14,7 @@ import { formatWeight } from "@/lib/format";
 import { gradeById } from "@/lib/grades";
 import { ConnectButton } from "./ConnectButton";
 import { TxHash } from "./TxHash";
+import { asset } from "@/lib/paths";
 
 export function ClockPanel() {
   const { address, isConnected } = useAccount();
@@ -186,7 +187,7 @@ export function ClockPanel() {
                     className="panel-flat flex flex-wrap items-center gap-3 p-3"
                   >
                     <img
-                      src="/logo.png"
+                      src={asset("/logo.png")}
                       alt=""
                       className="pixel h-12 w-12 border-[3px] border-ink object-cover"
                     />

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ConnectButton } from "./ConnectButton";
+import { asset } from "@/lib/paths";
 
 const LINKS = [
   { href: "/", label: "Home" },
@@ -20,7 +21,7 @@ export function Header() {
       <div className="mx-auto flex max-w-6xl items-center gap-3 px-3 py-2.5 sm:px-5">
         <Link href="/" className="flex min-w-0 items-center gap-2">
           <img
-            src="/logo.png"
+            src={asset("/logo.png")}
             alt="Cash Cows"
             width={40}
             height={40}

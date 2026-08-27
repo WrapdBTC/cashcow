@@ -6,6 +6,7 @@ import { clockAbi, nftAbi } from "@/lib/abis";
 import { CLOCK_ADDRESS, NFT_ADDRESS } from "@/lib/contracts";
 import { formatWeight } from "@/lib/format";
 import { gradeById } from "@/lib/grades";
+import { asset } from "@/lib/paths";
 
 const TOP_N = 25;
 
@@ -105,7 +106,7 @@ export function LeaderboardBoard() {
           <li key={row.id.toString()} className="flex items-center gap-3 px-3 py-3">
             <span className="display w-8 text-right text-sm">{i + 1}</span>
             <img
-              src="/logo.png"
+              src={asset("/logo.png")}
               alt=""
               className="pixel h-9 w-9 border-[3px] border-ink object-cover"
             />
